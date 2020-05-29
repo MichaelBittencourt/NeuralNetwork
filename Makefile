@@ -1,5 +1,8 @@
 CC = g++
 FLAGS = --std=c++11
+DEBUG = 0
+OPTIMIZE = 3
+RM = rm -f
 INCLUDES :=
 DEFINES :=
 
@@ -15,7 +18,14 @@ $(BIN): $(OBJ)
 %.o: %.cpp
 	$(CC) $(INCLUDES) $(DEFINES) $(FLAGS) -c $< -o $@
 
-.PHONY: clean
+.PHONY: debug clean
+
+debug: debug_setup all
+
+debug_setup:
+	$(eval OPTIMIZE = 0)
+	$(eval DEBUG = 4)
+	$(eval DEFINES = $(DEFINES) -DDEBUG)
 
 clean:
-	rm -f $(OBJ) $(BIN)
+	$(RM) $(OBJ) $(BIN)
