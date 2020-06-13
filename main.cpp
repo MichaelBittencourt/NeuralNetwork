@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include"Neuron.h"
-#define QTD_NEURONS 1
+#define QTD_NEURONS 50000
 
 int main(void) {
 
@@ -19,6 +19,8 @@ int main(void) {
     neuronFinal.think();
     std::cout << "neuronFinal Output: " << neuronFinal.getOutput() << std::endl;
     std::cout << "neuronFinal derivative Output: " << neuronFinal.getDerivativeOutput() << std::endl;
+
+#ifdef FULL_VERBOSE
     
     for(int i = 0; i < QTD_NEURONS; i++) {
         std::vector<double> weights = neuron[i].getWeights();
@@ -33,6 +35,8 @@ int main(void) {
     for(int i = 0; i < QTD_NEURONS; i++) {
         std::cout << "\tWeight[" << i << "] = " << weightsFinal[i] << std::endl;
     }
+
+#endif
     return 0;
 
 }

@@ -12,6 +12,7 @@ class Neuron {
         std::map<unsigned int, double> weights;
         long int qtdDendrites;
         static const double h;
+        static double UNCONNECTED_DENDRITE;
         double output;
         double dOutput;
         double lastAccumulated;

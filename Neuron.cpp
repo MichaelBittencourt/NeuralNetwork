@@ -4,6 +4,8 @@
 #include <ctime>  /* time */
 #include <cmath> /* exp */
 #include <iostream>
+
+//TODO update Activation Function to use all dendrites as a parameter
 using namespace std;
 
 double Neuron::UNCONNECTED_DENDRITE = 0;
@@ -50,10 +52,12 @@ double Neuron::sigmoid(double x) {
     return 1 / (1 + exp(-x));
 }
 
+//TODO Adjust Derivative Function
 double Neuron::dsigmoid(double x) {
     return x * (1 - x);
 }
 
+//TODO Adjust Derivative Function
 double Neuron::genericDerivative() {
     return (this->actFunc(this->lastAccumulated + h) - this->output) / h;
 }
