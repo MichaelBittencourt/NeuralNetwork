@@ -11,15 +11,11 @@ class Neuron {
         std::map<unsigned int, double *> dendrites;
         std::map<unsigned int, double> weights;
         long int qtdDendrites;
-        static const double h;
         static double UNCONNECTED_DENDRITE;
         double output;
         double dOutput;
         double lastAccumulated;
         double accumulator();
-        static double sigmoid(double x);
-        static double dsigmoid(double x);
-        double genericDerivative();
         double (*actFunc)(double);
         double (*dActFunc)(double);
 
@@ -43,6 +39,5 @@ class Neuron {
         ~Neuron();
 
 };
-
 
 #endif

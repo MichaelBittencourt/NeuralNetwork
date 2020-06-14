@@ -2,16 +2,16 @@
 
 #include <cstdlib> /* srand, rand */
 #include <ctime>  /* time */
-#include <cmath> /* exp */
 #include <iostream>
+
+#include "activationFunctions.h"
 
 //TODO update Activation Function to use all dendrites as a parameter
 using namespace std;
 
 double Neuron::UNCONNECTED_DENDRITE = 0;
-const double Neuron::h = 0.000001;
 
-Neuron::Neuron() : Neuron(&Neuron::sigmoid, &Neuron::dsigmoid) { } 
+Neuron::Neuron() : Neuron(&ActivationFunctions::sigmoid, &ActivationFunctions::d_sigmoid) { }
 
 Neuron::Neuron(double (*activationFunction)(double)) : 
     Neuron::Neuron(activationFunction, nullptr) { }
@@ -46,20 +46,6 @@ double Neuron::accumulator() {
         ret += *(this->dendrites[i]) * this->weights[i];
     }
     return ret;
-}
-
-double Neuron::sigmoid(double x) {
-    return 1 / (1 + exp(-x));
-}
-
-//TODO Adjust Derivative Function
-double Neuron::dsigmoid(double x) {
-    return x * (1 - x);
-}
-
-//TODO Adjust Derivative Function
-double Neuron::genericDerivative() {
-    return (this->actFunc(this->lastAccumulated + h) - this->output) / h;
 }
 
 void Neuron::createDendrite() {
@@ -102,7 +88,7 @@ void Neuron::think() {
     std::cout << "The last accumulated: " << this->lastAccumulated << std::endl;
 #endif
     this->output = this->actFunc(this->lastAccumulated);
-    this->dOutput = this->dActFunc ? this->dActFunc(this->lastAccumulated) : this->genericDerivative();
+    this->dOutput = this->dActFunc ? this->dActFunc(this->lastAccumulated) : ActivationFunctions::genericDerivative(this->lastAccumulated, this->actFunc);
 }
 
 double & Neuron::getOutput() {
