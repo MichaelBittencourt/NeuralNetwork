@@ -22,10 +22,9 @@ Layer::Layer(const long & qtdNeurons, double (*activation)(double), double (*der
     amountNeurons(qtdNeurons),
     actFunc(activation),
     d_actFunc(derivativeActivation),
-    layerName(name) {
-
+    layerName(name)
+{
     this->createNeurons(qtdNeurons, this->actFunc, this->d_actFunc);
-
 }
 
 Layer::Layer(const long & qtdNeurons, double (*activation)(double), const string & name) :
@@ -44,34 +43,34 @@ Layer::Layer() :
     Layer(0) { }
 
 
-void Layer::createNeurons(long qtdNeurons) {
+void Layer::createNeurons(long qtdNeurons) const {
 
 }
 
-void Layer::createNeurons(long qtdNeurons, double (*activation)(double), double (*derivativeActivation)(double)) {
+void Layer::createNeurons(long qtdNeurons, double (*activation)(double), double (*derivativeActivation)(double)) const {
 
 }
 
-void Layer::createNeurons(std::vector<std::vector<double> > weights) {
+void Layer::createNeurons(std::vector<std::vector<double> > weights) const {
 
 }
 
-void Layer::createNeurons(std::vector<std::vector<double> > weights, double (*activation)(double), double (*derivativeActivation)(double)) {
+void Layer::createNeurons(std::vector<std::vector<double> > weights, double (*activation)(double), double (*derivativeActivation)(double)) const {
 
 }
 
-std::vector<double*> Layer::getOutputs() {
+std::vector<double*> Layer::getOutputs() const {
 
 }
 
-void Layer::setInputs(std::vector<double*> inputs) {
+void Layer::setInputs(std::vector<double*> inputs) const {
 
 }
 
-std::vector<std::vector<double> > Layer::getWeights() {
+std::vector<std::vector<double> > Layer::getWeights() const {
 
 }
 
-void Layer::setWeights(std::vector<std::vector<double> > weights) {
+void Layer::setWeights(std::vector<std::vector<double> > weights) const {
 
 }

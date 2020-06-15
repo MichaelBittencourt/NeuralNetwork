@@ -33,14 +33,14 @@ class Layer {
         Layer(const long & qtdNeurons);
         Layer();
 
-        virtual void createNeurons(long qtdNeurons);
-        virtual void createNeurons(long qtdNeurons, double (*activation)(double), double (*derivativeActivation)(double));
-        virtual void createNeurons(std::vector<std::vector<double> > weights);
-        virtual void createNeurons(std::vector<std::vector<double> > weights, double (*activation)(double), double (*derivativeActivation)(double));
-        virtual std::vector<double*> getOutputs();
-        virtual void setInputs(std::vector<double*> inputs);
-        virtual std::vector<std::vector<double> > getWeights();
-        virtual void setWeights(std::vector<std::vector<double> > weights);
+        virtual void createNeurons(long qtdNeurons) const;
+        virtual void createNeurons(long qtdNeurons, double (*activation)(double), double (*derivativeActivation)(double)) const;
+        virtual void createNeurons(std::vector<std::vector<double> > weights) const;
+        virtual void createNeurons(std::vector<std::vector<double> > weights, double (*activation)(double), double (*derivativeActivation)(double)) const;
+        virtual std::vector<double*> getOutputs() const;
+        virtual void setInputs(std::vector<double*> inputs) const;
+        virtual std::vector<std::vector<double> > getWeights() const;
+        virtual void setWeights(std::vector<std::vector<double> > weights) const;
 
 };
 
