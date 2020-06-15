@@ -2,6 +2,9 @@
 #define ACTIVATION_FUNCTIONS_H
 
 #include <vector>
+#include <string>
+
+using std::string;
 
 class ActivationFunctions {
 
@@ -11,6 +14,8 @@ class ActivationFunctions {
         static const double h;
 
     public:
+
+        static const string SIGMOID;
 
         static double sigmoid(double x);
 

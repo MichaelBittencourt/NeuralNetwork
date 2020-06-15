@@ -1,7 +1,11 @@
-#include "activationFunctions.h"
+#include "ActivationFunctions.h"
 #include <cmath> /* exp */
+#include <string>
+
+using std::string;
 
 const double ActivationFunctions::h = 0.000001;
+const string ActivationFunctions::SIGMOID = "sigmoid";
 
 double ActivationFunctions::sum(std::vector<double> vect) {
     double sum = 0;

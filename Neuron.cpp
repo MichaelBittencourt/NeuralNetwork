@@ -4,7 +4,7 @@
 #include <ctime>  /* time */
 #include <iostream>
 
-#include "activationFunctions.h"
+#include "ActivationFunctions.h"
 
 //TODO update Activation Function to use all dendrites as a parameter
 using namespace std;
